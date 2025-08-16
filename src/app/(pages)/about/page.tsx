@@ -3,10 +3,6 @@ import Image from "next/image";
 import React from "react";
 
 const AboutPage = () => {
-  const herosrc =
-    "https://res.cloudinary.com/dv7vjs0s0/image/upload/f_auto,q_auto,w_800/v1754448341/meg-jenson-_cp0vEyJb_Q-unsplash_xky98a.jpg";
-  const localsrc = "/images/hero.jpg";
-
   const about = {
     headline: "We don't just host events — we shape unforgettable experiences.",
     intro:
@@ -18,71 +14,7 @@ const AboutPage = () => {
     cta: "Let’s make something remarkable together. Explore our curated spaces or reach out to book a consultation — your next big moment deserves a venue that’s just as extraordinary.",
   };
 
-  return (
-    <section className="">
-      <div className="h-full relative w-full min-h-[90vh] justify-center flex items-center mb-20 ">
-        <div className="z-50 text-white">
-          <div className="flex text-center flex-col items-center justify-center">
-            <Image
-              loader={cloudinaryLoader}
-              src="/images/logo.png"
-              alt="Julie Party Planner Logo"
-              width={400}
-              height={50}
-              className="object-contain ml-2"
-            />
-            <h1 className="text-[2.5rem] font-semibold lg:text-[5rem]">
-              ABOUT US{" "}
-            </h1>
-            <p className="text-xs font-semi-bold lg:text-[1rem] opacity-80">
-              EXPLORE
-            </p>
-          </div>
-        </div>
-        <div className="bg-black opacity-70 z-40 absolute h-full w-full"></div>
-        <div className="absolute w-full h-full overflow-hidden">
-          <Image
-            loader={cloudinaryLoader}
-            src={herosrc}
-            alt="Party, event, image"
-            width={1000}
-            height={1000}
-            className="object-cover w-full h-full"
-            unoptimized
-          />
-        </div>
-      </div>
-
-      <div className="w-full flex flex-col items-center">
-        <h2 className="lg:text-[3rem] text-[1.5em] font-semibold lg:text-center  mb-5 w-[90%] lg:w-full">
-          {about.headline}
-        </h2>
-        <div className="lg:w-[80%] w-[90%] flex flex-col items-center">
-          <p className="lg:w-[70%] text-justify">{about.intro}</p>
-
-          <div className="my-8">
-            <h3 className="lg:text-[3rem] text-[1.5em] font-semibold lg:text-center  mb-5 w-[90%] lg:w-full">
-              Our Philosophy
-            </h3>
-            <p className="text-justify">{about.philosophy}</p>
-          </div>
-
-          <div className="my-8">
-            <h3 className="lg:text-[3rem] text-[1.5em] font-semibold lg:text-center  mb-5 w-[90%] lg:w-full">
-              What We Offer
-            </h3>
-            <p className="text-justify">{about.uniqueValue}</p>
-          </div>
-          <div className="my-8">
-            <h3 className="lg:text-[3rem] text-[1.5em] font-semibold lg:text-center  mb-5 w-[90%] lg:w-full">
-              Let's Create the Remarkable
-            </h3>
-            <p className="text-justify">{about.cta}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  return <section className="">About Section</section>;
 };
 
 export default AboutPage;
