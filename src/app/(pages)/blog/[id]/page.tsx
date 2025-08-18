@@ -1,13 +1,21 @@
 import MotionWrapper from "@/app/_components/utilities/motionWrapper";
 import { blogPosts } from "@/data/blogPosts";
 
+// Generate static params for SSG
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
     id: post.id.toString(),
   }));
 }
 
-export default function BlogPostPage({ params }: { params: { id: string } }) {
+// Explicit type for params
+interface BlogPostPageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default function BlogPostPage({ params }: BlogPostPageProps) {
   const post = blogPosts.find((p) => p.id.toString() === params.id);
 
   if (!post) {
@@ -75,6 +83,8 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
                 </blockquote>
               </MotionWrapper>
             );
+
+          return null;
         })}
       </div>
     </div>
