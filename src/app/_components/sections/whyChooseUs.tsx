@@ -7,44 +7,6 @@ import Image from "next/image";
 import cloudinaryLoader from "@/app/lib/cloudinary";
 
 const WhyChooseUs = () => {
-  const flags = [
-    {
-      id: 0,
-      title: "German",
-      image: "",
-    },
-    {
-      id: 1,
-      title: "French",
-      image: "",
-    },
-    {
-      id: 2,
-      title: "French",
-      image: "",
-    },
-    {
-      id: 3,
-      title: "French",
-      image: "",
-    },
-    {
-      id: 4,
-      title: "French",
-      image: "",
-    },
-    {
-      id: 5,
-      title: "French",
-      image: "",
-    },
-    {
-      id: 6,
-      title: "French",
-      image: "",
-    },
-  ];
-
   return (
     <section className="lg:px-40 px-3 min-h-[100vh] lg:my-[10em] my-[10em]">
       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:mb-[8em]">
@@ -91,10 +53,10 @@ const WhyChooseUs = () => {
                     return (
                       <div
                         key={index}
-                        className="p-[2px] rounded-lg bg-gradient-to-br from-amber-500 via-pink-500 to-purple-600"
+                        className="p-[2px] rounded-lg bg-gradient-to-br w-fit from-amber-500 via-pink-500 to-purple-600"
                       >
-                        <div className="rounded-lg bg-background text-foreground p-4 flex ">
-                          <div className="h-[10px] w-[10px] mr-2">
+                        <div className="rounded-lg bg-background w-fit text-foreground p-4 flex ">
+                          <div className="h-[10px] w-[10px] mr-2 ">
                             {/* <Image
                               loader={cloudinaryLoader}
                               src={flag}
@@ -105,7 +67,7 @@ const WhyChooseUs = () => {
                               // unoptimized
                             /> */}
                           </div>
-                          <strong className="">{name}</strong>;
+                          <strong className="text-nowrap">{name}</strong>
                         </div>
                       </div>
                     );
@@ -123,28 +85,29 @@ const WhyChooseUs = () => {
                     ease: "linear", // Smooth movement
                   }}
                 >
-                  {flags.map(({ id, title, image }) => {
+                  {languagesContents.languages.map(({ name, flag }, index) => {
                     return (
                       <div
-                        key={id}
-                        className="p-[2px] rounded-lg bg-gradient-to-br from-amber-500 via-pink-500 to-purple-600"
+                        key={index}
+                        className="p-[2px] rounded-lg bg-gradient-to-br w-fit from-amber-500 via-pink-500 to-purple-600"
                       >
-                        <div className="rounded-lg bg-background text-foreground p-4 flex ">
-                          <div className="h-[10px] w-[10px] mr-2">
+                        <div className="rounded-lg bg-background w-fit text-foreground p-4 flex ">
+                          <div className="h-[10px] w-[10px] mr-2 ">
                             {/* <Image
-                            loader={cloudinaryLoader}
-                            src={image}
-                            alt="Country flags, linguistics"
-                            width={1000}
-                            height={1000}
-                            className="object-cover w-full h-full"
-                            // unoptimized /> */}
+                              loader={cloudinaryLoader}
+                              src={flag}
+                              alt={`Country, Linguistic, language, translation: ${name}`}
+                              width={1000}
+                              height={1000}
+                              className="object-cover w-full h-full"
+                              // unoptimized
+                            /> */}
                           </div>
-                          <strong className="">{title}</strong>;
+                          <strong className="text-nowrap">{name}</strong>
                         </div>
                       </div>
                     );
-                  })}
+                  })}{" "}
                 </motion.div>
               </div>
             </div>
