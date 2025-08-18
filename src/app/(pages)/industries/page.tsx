@@ -1,7 +1,7 @@
 import { PageLayout } from "@/app/_components/sections/pageLayout";
 import React from "react";
 
-export const industriesContents = {
+const industriesContents = {
   hero: {
     headline: "Specialized Language Solutions by Industry",
     subheadline:
