@@ -6,7 +6,8 @@ const Logo = () => {
   return (
     <Link href="/" className="flex items-center justify-center">
       <strong className="flex text-center items-center justify-center text-[1.2rem] font-extrabold">
-        hcl<span className="text-gradient-r">360</span>
+        H <span className="">C</span>L
+        <span className="text-gradient-r-2">360</span>
       </strong>
     </Link>
   );

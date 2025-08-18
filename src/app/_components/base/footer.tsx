@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex justify-center opacity-40">
           {/* <LogoImage /> */}
         </div>
-        <h1 className="text-[20rem] font-black text-gradient-r opacity-10">
+        <h1 className="text-[20rem] font-black text-gradient-r-2 opacity-10">
           HCL
         </h1>
       </div>

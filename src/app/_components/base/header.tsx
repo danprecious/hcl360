@@ -59,7 +59,7 @@ const navLinks: NavLinks[] = [
   {
     id: 2,
     title: "Business Translation Services",
-    href: "/business-translation-services",
+    href: "/business-translation",
     subMenu: [
       {
         id: 0,
@@ -118,7 +118,7 @@ const navLinks: NavLinks[] = [
   {
     id: 4,
     title: "About Us",
-    href: "/about-us",
+    href: "/about",
     subMenu: null,
   },
   {
@@ -136,7 +136,7 @@ const navLinks: NavLinks[] = [
   {
     id: 7,
     title: "Contact Us",
-    href: "/contact-us",
+    href: "/contact",
     subMenu: null,
   },
 ];
@@ -145,47 +145,52 @@ const Header = () => {
   const [hoverId, setHoverId] = useState<number | null>(null);
 
   return (
-    <header className="flex justify-center items-center py-5 px-3 sticky top-0 backdrop-blur-md bg-background/80 z-60">
+    <header className="flex justify-center items-center lg:py-7 py-5 lg:px-6 shadow-xs shadow-foreground/5 px-3 sticky top-0 backdrop-blur-sm bg-transparent z-60">
       <nav className="lg:flex justify-between items-center hidden w-full text-sm font-light">
-        <Logo />
-        <div className="flex w-[70%] justify-between">
-          {navLinks.map(({ id, title, href, subMenu }) => (
-            <div
-              key={id}
-              className="relative mx-3"
-              onMouseEnter={() => setHoverId(id)}
-              // onMouseLeave={() => setHoverId(null)}
-            >
-              <Link
-                href={href}
-                className={`w-fit {pathName === href ? "text-blue-500 font-bold" : ""}`}
+        <div className="w-[85%] flex flex-col items-start">
+          <Logo />
+          <div className="flex justify-between gap-8 mt-5">
+            {navLinks.map(({ id, title, href, subMenu }) => (
+              <div
+                key={id}
+                className="relative"
+                onMouseEnter={() => setHoverId(id)}
+                // onMouseLeave={() => setHoverId(null)}
               >
-                {title}
-              </Link>
-
-              {/* Submenu */}
-              {subMenu && hoverId === id && (
-                <div
-                  onMouseLeave={() => setHoverId(null)}
-                  className="absolute left-0 mt-2 bg-white shadow-lg rounded-md p-5 z-50 w-[20em]"
+                <Link
+                  href={href}
+                  className={`w-fit {pathName === href ? "text-blue-500 font-bold" : ""}`}
                 >
-                  <ul>
-                    {subMenu.map((item) => (
-                      <li key={item.id} className="py-5">
-                        <Link href={item.href} className="hover:text-stone-500">
-                          {item.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          ))}
+                  {title}
+                </Link>
+
+                {/* Submenu */}
+                {subMenu && hoverId === id && (
+                  <div
+                    onMouseLeave={() => setHoverId(null)}
+                    className="absolute left-0 mt-2 bg-background border shadow-lg rounded-md p-5 z-50 w-[20em]"
+                  >
+                    <ul>
+                      {subMenu.map((item) => (
+                        <li key={item.id} className="py-5">
+                          <Link
+                            href={item.href}
+                            className="hover:text-stone-500"
+                          >
+                            {item.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="">
-          <Link href="/get-started" className="button1">
+          <Link href="/request-a-quote" className="button1">
             Request a Quote
           </Link>
         </div>

@@ -1,16 +1,15 @@
-// app/api/send-booking/route.ts
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message, guests, eventDate } = await req.json();
+    const { name, email, subject, message } = await req.json();
 
-    if (!email || !message || !name || !eventDate) {
+    if (!name || !email || !subject || !message) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
 
-    const receiverMail = "Juliepartyplannerandconsultllc@gmail.com";
+    const receiverMail = "hclanguagesolutions@gmail.com"; // agency email
 
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -18,40 +17,36 @@ export async function POST(req: Request) {
       secure: false,
       auth: {
         user: "kdpcoder@gmail.com",
-        pass: "zymtznvwrlyfvlgu", // Consider moving this to environment variables
+        pass: "zymtznvwrlyfvlgu", // move to env in production
       },
     });
 
     const html = `
       <div>
-        <h2>New Booking Request</h2>
+        <h2>New Contact Message</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Guests:</strong> ${guests || "Not specified"}</p>
-        <p><strong>Event Date:</strong> ${eventDate}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
         <p><strong>Message:</strong></p>
         <p>${message}</p>
       </div>
     `;
 
-    const mailOptions = {
+    await transporter.sendMail({
       from: email,
       to: receiverMail,
-      subject: `New Booking Request from ${name}`,
-      text: message,
+      subject: `Contact Form: ${subject}`,
       html,
-    };
-
-    await transporter.sendMail(mailOptions);
+    });
 
     return NextResponse.json(
-      { message: "Email sent successfully" },
+      { message: "Message sent successfully" },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error sending booking email:", error);
+    console.error("Error sending contact message:", error);
     return NextResponse.json(
-      { error: "Failed to send email" },
+      { error: "Failed to send message" },
       { status: 500 }
     );
   }

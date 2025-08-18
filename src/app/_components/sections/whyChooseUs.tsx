@@ -2,6 +2,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaHandshake } from "react-icons/fa6";
+import { languagesContents } from "./languages";
+import Image from "next/image";
+import cloudinaryLoader from "@/app/lib/cloudinary";
 
 const WhyChooseUs = () => {
   const flags = [
@@ -43,7 +46,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="lg:px-20 px-3 min-h-[100vh] lg:my-[10em] my-[10em]">
+    <section className="lg:px-40 px-3 min-h-[100vh] lg:my-[10em] my-[10em]">
       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:mb-[8em]">
         <h2 className="lg:text-[3.5rem] text-[2em] font-bold lg:w-[60%] mb-8 lg:mb-0">
           Why HCL 360?
@@ -54,8 +57,8 @@ const WhyChooseUs = () => {
           a breeze
         </p>
       </div>
-      <div className="lg:h-[100vh] flex lg:gap-3 gap-8 flex-col lg:flex-row lg:px-20">
-        <div className="lg:w-[50%] rounded-lg h-full bg-foreground/5 lg:p-8 p-5">
+      <div className="lg:h-[100vh] flex lg:gap-3 gap-8 flex-col lg:flex-row ">
+        <div className="lg:w-[50%] rounded-lg h-full shadow-border lg:p-8 p-5  ">
           <div className="h-[65%]"></div>
           <div className="">
             <h2 className="lg:text-[2.5rem] text-[1.5rem] font-bold py-5">
@@ -65,7 +68,7 @@ const WhyChooseUs = () => {
           </div>
         </div>
         <div className="flex flex-col gap-3 lg:w-[50%] rouned-lg h-full">
-          <div className="h-[60%] bg-foreground/5 rounded-lg lg:p-8 p-5">
+          <div className="h-[60%] shadow-border rounded-lg lg:p-8 p-5">
             <div className="">
               <h2 className="text-[1.5rem] lg:text-[2.5rem] font-bold py-5">
                 Expert Linguistics
@@ -84,31 +87,32 @@ const WhyChooseUs = () => {
                     ease: "linear", // Smooth movement
                   }}
                 >
-                  {flags.map(({ id, title, image }) => {
+                  {languagesContents.languages.map(({ name, flag }, index) => {
                     return (
                       <div
-                        key={id}
-                        className="rounded-md border-gradient px-5 py-3 mb-10 flex items-center justify-center"
+                        key={index}
+                        className="p-[2px] rounded-lg bg-gradient-to-br from-amber-500 via-pink-500 to-purple-600"
                       >
-                        <div className="h-[20px] w-[20px]">
-                          {/* <Image
-                  loader={cloudinaryLoader}
-                  src={image}
-                  alt="Country flags, liguistics"
-                  width={1000}
-                  height={1000}
-                  className="object-cover w-full h-full"
-                  // unoptimized
-                  /> */}
+                        <div className="rounded-lg bg-background text-foreground p-4 flex ">
+                          <div className="h-[10px] w-[10px] mr-2">
+                            {/* <Image
+                              loader={cloudinaryLoader}
+                              src={flag}
+                              alt={`Country, Linguistic, language, translation: ${name}`}
+                              width={1000}
+                              height={1000}
+                              className="object-cover w-full h-full"
+                              // unoptimized
+                            /> */}
+                          </div>
+                          <strong className="">{name}</strong>;
                         </div>
-
-                        <strong className="ml-2">{title}</strong>
                       </div>
                     );
                   })}
                 </motion.div>
               </div>
-              <div className="flex items-end w-[100%] overflow-hidden lg:block">
+              <div className="flex items-end w-[100%] overflow-hidden lg:block mt-10">
                 <motion.div
                   className="h-full flex  items-end gap-3"
                   animate={{ x: ["0%", "-50%"] }}
@@ -123,21 +127,21 @@ const WhyChooseUs = () => {
                     return (
                       <div
                         key={id}
-                        className="rounded-md border-gradient px-5 py-3 mb-10 flex items-center justify-center"
+                        className="p-[2px] rounded-lg bg-gradient-to-br from-amber-500 via-pink-500 to-purple-600"
                       >
-                        <div className="h-[20px] w-[20px]">
-                          {/* <Image
-                  loader={cloudinaryLoader}
-                  src={image}
-                  alt="Country flags, liguistics"
-                  width={1000}
-                  height={1000}
-                  className="object-cover w-full h-full"
-                  // unoptimized
-                  /> */}
+                        <div className="rounded-lg bg-background text-foreground p-4 flex ">
+                          <div className="h-[10px] w-[10px] mr-2">
+                            {/* <Image
+                            loader={cloudinaryLoader}
+                            src={image}
+                            alt="Country flags, linguistics"
+                            width={1000}
+                            height={1000}
+                            className="object-cover w-full h-full"
+                            // unoptimized /> */}
+                          </div>
+                          <strong className="">{title}</strong>;
                         </div>
-
-                        <strong className="ml-2">{title}</strong>
                       </div>
                     );
                   })}
@@ -146,7 +150,7 @@ const WhyChooseUs = () => {
             </div>
           </div>
           <div className="lg:flex-row flex flex-col gap-3 h-[40%]">
-            <div className="rounded-lg lg:w-[50%] bg-foreground/5 lg:p-8 p-5">
+            <div className="rounded-lg lg:w-[50%] shadow-border lg:p-8 p-5">
               <div className="h-[60%]">
                 <h2 className="text-[3rem] text-[] font-extrabold">100%</h2>
               </div>
@@ -154,7 +158,7 @@ const WhyChooseUs = () => {
               <h3 className="text-[1.5rem]">Fast Turnaround</h3>
               <p className="">We respect your deadlines.</p>
             </div>
-            <div className="rounded-lg lg:w-[50%] bg-foreground/5 lg:p-8 p-5">
+            <div className="rounded-lg lg:w-[50%] shadow-border lg:p-8 p-5">
               <div className="h-[60%]">
                 <FaHandshake className="font-bold lg:text-[5rem] text-[5rem]" />
               </div>

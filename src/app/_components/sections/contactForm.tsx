@@ -1,103 +1,107 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
-
-import axios from "axios";
 import { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 import { useToast } from "./toasters";
 
-const ContactComponent = () => {
-  const router = useRouter();
-  const path = usePathname();
-  const [email, setEmail] = useState("");
+const ContactPage = () => {
+  const { setError, setSuccess, removeToast } = useToast();
+  const [loading, setLoading] = useState(false);
 
-  const { toast, setError, setSuccess, removeToast } = useToast();
-
-  const emailSchema = z.object({
+  const contactSchema = z.object({
+    name: z.string().min(1, { message: "Name is required" }),
     email: z.string().email({ message: "Invalid email address" }),
+    subject: z.string().min(1, { message: "Subject is required" }),
     message: z.string().min(1, { message: "Message cannot be empty" }),
   });
 
   const {
-    handleSubmit,
     register,
+    handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(emailSchema),
+    resolver: zodResolver(contactSchema),
   });
 
-  const handleEmailAuth = async (data: { email: string; message: string }) => {
+  const handleContactSubmit = async (data: any) => {
     try {
-      console.log(data, data.email);
-
-      if (!data.email && !data.message) {
-        return;
-      }
-
-      const response = await axios.post(
-        "/api/send-mail",
-        { email: data.email, message: data.message },
-        {
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-
-      console.log(response);
-
-      setSuccess("Message Sent");
-
-      setTimeout(() => {
-        removeToast();
-      }, 4000);
-    } catch (error) {
-      console.error("Error Sending Message");
-      setError("Error Sending Message");
-      setTimeout(() => {
-        removeToast();
-      }, 4000);
+      setLoading(true);
+      await axios.post("/api/contact", data, {
+        headers: { "Content-Type": "application/json" },
+      });
+      setSuccess("Message sent successfully!");
+      setTimeout(() => removeToast(), 4000);
+    } catch (err) {
+      console.error(err);
+      setError("Failed to send message");
+      setTimeout(() => removeToast(), 4000);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="lg:h-[90%] py-10 lg:px-20 w-full flex-c-center px-4 max-w-[30em] relative">
-      <h5 className="text-[2rem] mb-3 py-10">Leave Us a Message</h5>
-      <div className="w-full">
-        <form onSubmit={handleSubmit(handleEmailAuth)} className="">
-          <input
-            {...register("email")}
-            type="email"
-            name="email"
-            id=""
-            placeholder="yourname@demo.com"
-            className="px-2 py-[.5em] w-full border-[1px] rounded-md border-foreground/10 my-3"
-          />
-          <div className="">
-            <textarea
-              {...register("message")}
-              name="message"
-              id="message"
-              placeholder="Your message here"
-              className="px-2 py-[.5em] w-full border-[1px] rounded-md border-foreground/10 my-3 h-[150px] resize-none"
-            ></textarea>
-          </div>
-          {
-            <p className="text-center">
-              {errors.email?.message ? errors.email?.message : ""}
-            </p>
-          }
-          <button
-            type="submit"
-            className={`text-background bg-foreground hover:bg-foreground/80 cursor-pointer  px-2 py-[.5em] w-full rounded-md`}
-          >
-            Leave a Message
-          </button>
-        </form>
-      </div>
+    <div className="w-full py-20 px-6 lg:px-16 max-w-3xl mx-auto">
+      {/* HEADER */}
+      <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
+        Reach Out to Us
+      </h1>
+      <p className="text-lg opacity-70 mb-12 text-center">
+        Have questions or want to discuss your project? Fill out the form below
+        and we’ll get back to you promptly.
+      </p>
+
+      {/* FORM */}
+      <form
+        onSubmit={handleSubmit(handleContactSubmit)}
+        className="border rounded-xl p-6 flex flex-col gap-4"
+      >
+        <input
+          {...register("name")}
+          placeholder="Your Name"
+          className="border px-3 py-2 rounded-md"
+        />
+        {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+
+        <input
+          {...register("email")}
+          type="email"
+          placeholder="your@email.com"
+          className="border px-3 py-2 rounded-md"
+        />
+        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+
+        <input
+          {...register("subject")}
+          placeholder="Subject"
+          className="border px-3 py-2 rounded-md"
+        />
+        {errors.subject && (
+          <p className="text-red-500">{errors.subject.message}</p>
+        )}
+
+        <textarea
+          {...register("message")}
+          placeholder="Your message..."
+          className="border px-3 py-2 rounded-md h-[150px]"
+        />
+        {errors.message && (
+          <p className="text-red-500">{errors.message.message}</p>
+        )}
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="bg-foreground cursor-pointer text-background py-2 rounded-md hover:bg-foreground/80 transition"
+        >
+          {loading ? "Sending..." : "Send Message"}
+        </button>
+      </form>
     </div>
   );
 };
 
-export default ContactComponent;
+export default ContactPage;

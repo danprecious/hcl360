@@ -42,3 +42,43 @@ export interface NavLinks {
   href: string;
   subMenu: Array<links> | null;
 }
+
+export interface HeroSection {
+  headline: string;
+  subheadline: string;
+  cta: string;
+}
+
+export interface CTASection {
+  headline: string;
+  buttons: string[];
+}
+
+export interface PageContents {
+  hero: HeroSection;
+
+  // Generic intro (services pages)
+  intro?: string;
+
+  // Services pages
+  services?: { title: string; description: string }[];
+  whoFor?: string[];
+  caseStudy?: { title: string; content: string };
+
+  // About page
+  mission?: string;
+  story?: string;
+  values?: string[];
+  teamIntro?: string;
+
+  // Industries page
+  industries?: { title: string; description: string }[];
+
+  // Shared
+  whyChoose?: string[];
+  ctaBanner?: CTASection;
+}
+
+export interface PageLayoutProps {
+  contents: PageContents;
+}

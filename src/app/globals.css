@@ -25,15 +25,15 @@
 
 body {
   background-color: var(--background);
-  /* background-image: repeating-radial-gradient(
+  background-image: repeating-radial-gradient(
     circle,
     rgba(255, 255, 255, 0.05) 0,
     rgba(255, 255, 255, 0.05) 1px,
     transparent 1px,
     transparent 100%
-  ); */
-  /* background-size: 4px 3px; */
-  /* animation: grain 1s steps(2) ease-in-out infinite;  */
+  );
+  background-size: 4px 3px;
+  animation: grain 1s steps(2) ease-in-out infinite;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -59,19 +59,33 @@ body {
 }
 
 .text-gradient-b {
-  @apply text-transparent  bg-gradient-to-b from-0% from-foreground to-80% to-foreground/50 bg-clip-text;
+  @apply text-transparent bg-gradient-to-br from-amber-500 from-0% via-pink-500 via-70% to-purple-600 to-90% bg-clip-text;
 }
 
 .text-gradient-r {
-  @apply text-transparent bg-gradient-to-r from-0% from-foreground to-80% to-foreground/20 bg-clip-text;
+  @apply text-transparent bg-gradient-to-br from-amber-500 from-0% via-pink-500 via-70% to-purple-600 to-90% bg-clip-text;
+}
+
+.hero-span {
+  @apply text-transparent bg-gradient-to-br from-amber-500 from-0%  via-pink-500 via-70% to-purple-600 to-80% bg-clip-text;
+}
+
+.text-gradient-r-2 {
+  @apply text-transparent bg-gradient-to-r from-amber-500 from-0%  via-purple-600 via-40% to-transparent to-95% bg-clip-text;
 }
 
 .text-gradient-br {
-  @apply text-transparent  bg-gradient-to-br from-0% from-foreground to-80% to-foreground/20 bg-clip-text;
+  @apply text-transparent  bg-gradient-to-br from-amber-500 from-0% via-pink-500 via-70% to-purple-600 to-90% bg-clip-text;
 }
 
 .border-gradient {
-  @apply border-transparent bg-gradient-to-br from-amber-500 from-0% via-pink-500 via-70% to-purple-600 to-90% bg-clip-border;
+  border: 3px solid transparent;
+  border-image: linear-gradient(135deg, #f59e0b, #ec4899 70%, #9333ea 90%) 1;
+  border-radius: 1em;
+}
+
+.shadow-border {
+  @apply border-[1px] border-solid border-foreground/10;
 }
 
 .button {
@@ -79,7 +93,7 @@ body {
 }
 
 .button1 {
-  @apply bg-stone-800 text-white px-10 py-3 rounded-md hover:bg-stone-700 transition-colors;
+  @apply bg-neutral-900 text-white px-10 py-4 rounded-md hover:bg-neutral-800 transition-colors;
 }
 
 .toasters {

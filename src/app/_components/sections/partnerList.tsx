@@ -2,34 +2,24 @@
 import { motion } from "framer-motion";
 
 const listOfPartners = [
-  "monalisa",
-  "palabres",
-  "groker",
-  "monalisa",
-  "palabres",
-  "groker",
-  "monalisa",
-  "palabres",
-  "groker",
-  ,
-  "monalisa",
-  "palabres",
-  "groker",
-  "monalisa",
-  "palabres",
-  "groker",
-  "monalisa",
-  "palabres",
-  "groker",
+  "Gloz Inc",
+  "Flitto",
+  "Innodata Inc",
+  "Monisa Enterprise",
+  "Argos Multilingual",
+  "The Kitchen",
+  "Hubdub Solutions",
+  "Alchemy Translations",
+  "Translated",
 ];
 
 const PartnerList = () => {
   return (
     <div className="">
-      <div className="flex lg:px-14 items-end w-[100%] overflow-hidden lg:block">
+      <div className="flex lg:px-14 items-end w-[100%] overflow-hidden lg:block mb-14">
         <motion.div
           className="h-full flex  items-end gap-3"
-          animate={{ x: ["-60%", "0%"] }}
+          animate={{ x: ["-30%", "0%"] }}
           transition={{
             repeat: Infinity, // Repeat the animation infinitely
             repeatType: "mirror", // Loop the animation
@@ -41,9 +31,13 @@ const PartnerList = () => {
             return (
               <div
                 key={index}
-                className="rounded-md border-gradient px-5 py-3 mb-10"
+                className="p-[2px] rounded-lg flex justify-center w-fit bg-gradient-to-br from-amber-500 via-pink-500 to-purple-600"
               >
-                <strong className="">{partner}</strong>
+                <div className="rounded-lg bg-background text-foreground py-4 px-8">
+                  <strong className="flex text-nowrap  text-center justify-center">
+                    {partner}
+                  </strong>
+                </div>
               </div>
             );
           })}
@@ -52,7 +46,7 @@ const PartnerList = () => {
       <div className="flex lg:px-14 items-end w-[100%] overflow-hidden lg:block">
         <motion.div
           className="h-full flex  items-end gap-3 "
-          animate={{ x: ["0%", "-50%"] }}
+          animate={{ x: ["0%", "-30%"] }}
           transition={{
             repeat: Infinity, // Repeat the animation infinitely
             repeatType: "mirror", // Loop the animation
@@ -62,8 +56,15 @@ const PartnerList = () => {
         >
           {listOfPartners.map((partner, index) => {
             return (
-              <div key={index} className="rounded-md border-gradient px-5 py-3">
-                <strong className="">{partner}</strong>
+              <div
+                key={index}
+                className="p-[2px] rounded-lg flex justify-center w-fit bg-gradient-to-br from-amber-500 via-pink-500 to-purple-600"
+              >
+                <div className="rounded-lg bg-background text-foreground py-4 px-8">
+                  <strong className="text-nowrap  text-center ">
+                    {partner}
+                  </strong>
+                </div>
               </div>
             );
           })}
