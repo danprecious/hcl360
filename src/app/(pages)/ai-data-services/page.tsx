@@ -1,8 +1,8 @@
-import PageLayout from "@/app/_components/sections/pageLayout";
+import { PageLayout } from "@/app/_components/sections/pageLayout";
 import { Toast } from "@/app/_components/sections/toasters";
 import React from "react";
 
-export const aiDataServicesContents = {
+const aiDataServicesContents = {
   hero: {
     headline: "Fueling a Smarter Future with Precision Language Data",
     subheadline:

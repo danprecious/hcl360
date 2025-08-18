@@ -42,7 +42,7 @@ export const languagesContents: LanguagesContents = {
   ],
 };
 
-const LanguagesPage = () => {
+export const LanguagesPage = () => {
   return (
     <div className="w-full">
       {/* HEADER */}
@@ -84,5 +84,3 @@ const LanguagesPage = () => {
     </div>
   );
 };
-
-export default LanguagesPage;

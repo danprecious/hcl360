@@ -1,4 +1,4 @@
-import PageLayout from "@/app/_components/sections/pageLayout";
+import { PageLayout } from "@/app/_components/sections/pageLayout";
 import React from "react";
 
 export const industriesContents = {

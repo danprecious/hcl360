@@ -4,7 +4,7 @@ import { PageLayoutProps } from "@/app/types/types";
 import MotionWrapper from "../utilities/motionWrapper";
 import Link from "next/link";
 
-const PageLayout: React.FC<PageLayoutProps> = ({ contents }) => {
+export const PageLayout: React.FC<PageLayoutProps> = ({ contents }) => {
   return (
     <div className="w-full ">
       {/* HERO */}
@@ -246,5 +246,3 @@ const PageLayout: React.FC<PageLayoutProps> = ({ contents }) => {
     </div>
   );
 };
-
-export default PageLayout;

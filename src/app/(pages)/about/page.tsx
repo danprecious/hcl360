@@ -1,4 +1,4 @@
-import PageLayout from "@/app/_components/sections/pageLayout";
+import { PageLayout } from "@/app/_components/sections/pageLayout";
 import cloudinaryLoader from "@/app/lib/cloudinary";
 import Image from "next/image";
 import React from "react";
