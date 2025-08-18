@@ -3,7 +3,7 @@ import cloudinaryLoader from "@/app/lib/cloudinary";
 import Image from "next/image";
 import React from "react";
 
-export const aboutUsContents = {
+const aboutUsContents = {
   hero: {
     headline: "Beyond Words: Your Partner in Language Innovation",
     subheadline:
