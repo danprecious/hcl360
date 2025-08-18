@@ -64,17 +64,17 @@ const navLinks: NavLinks[] = [
       {
         id: 0,
         title: "Document Translation",
-        href: "/business-translation-services/#document-translation",
+        href: "/business-translation/#document-translation",
       },
       {
         id: 1,
         title: "Website Localization",
-        href: "/business-translation-services/#website-localization",
+        href: "/business-translation/#website-localization",
       },
       {
         id: 2,
         title: "Certified Translation",
-        href: "/business-translation-services/#certified-translation",
+        href: "/business-translation/#certified-translation",
       },
     ],
   },

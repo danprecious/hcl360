@@ -19,7 +19,7 @@ export const blogPosts: BlogPost[] = [
     title: "What is 'Training Data' and Why Does Quality Matter?",
     description:
       "A deep dive into the role of training data in AI and how data quality impacts the accuracy, reliability, and performance of machine learning models.",
-    image: "/images/training-data-quality.jpg",
+    image: "v1755529437/training-data_ll8pfp.jpg",
     excerpt:
       "Training data is the backbone of AI systems. Learn why quality, not just quantity, determines how well your model performs in real-world scenarios.",
     date: "2025-08-10",
@@ -136,7 +136,7 @@ export const blogPosts: BlogPost[] = [
     title: "5 Common Mistakes in Video Subtitling (And How to Avoid Them)",
     description:
       "Discover the top errors made in video subtitling and how professional localization ensures your message is understood worldwide.",
-    image: "/images/video-subtitling-mistakes.jpg",
+    image: "v1755529436/mistakes-subtitle_znsyi8.jpg",
     excerpt:
       "From poor timing to cultural missteps, subtitling mistakes can ruin a viewer's experience. Here's how to get it right every time.",
     date: "2025-08-12",
@@ -270,7 +270,7 @@ export const blogPosts: BlogPost[] = [
     title: "Human-in-the-Loop: Why Expert Linguists are Crucial for AI",
     description:
       "Explore how human expertise complements AI automation to deliver high-quality translations, annotations, and data solutions.",
-    image: "/images/human-in-the-loop.jpg",
+    image: "v1755529436/human-loop_gakbjz.jpg",
     excerpt:
       "AI can process vast amounts of data, but without human oversight, errors and cultural nuances can be overlooked.",
     date: "2025-08-14",
@@ -388,7 +388,8 @@ export const blogPosts: BlogPost[] = [
     title: "The Difference Between Localization and Translation in Media",
     description:
       "Understand the critical differences between translation and localization, and why both matter in global media projects.",
-    image: "/images/localization-vs-translation.jpg",
+    image:
+      "v1755529439/20250818_1549_Localization_vs_Translation_simple_compose_01k2ytezc1ezfav70m4hp3eqq6_iqckae.png",
     excerpt:
       "Translation converts words; localization adapts experiences. Here's why the distinction is key to reaching global audiences.",
     date: "2025-08-15",
@@ -502,7 +503,8 @@ export const blogPosts: BlogPost[] = [
     title: "AI-Powered Future of Translation",
     description:
       "Explore how artificial intelligence is reshaping the translation industry, from neural machine translation to real-time multilingual communication.",
-    image: "/images/ai-future-translation.jpg",
+    image:
+      "v1755529440/20250818_1551_AI_Translation_Revolution_simple_compose_01k2ytje0nek8ttq0mc5683h11_ygxuxf.png",
     excerpt:
       "AI is making translation faster, cheaper, and more accessible — but the human touch remains essential for nuance, creativity, and cultural depth.",
     date: "2025-08-16",
@@ -621,7 +623,7 @@ export const blogPosts: BlogPost[] = [
     title: "Why Certified Translation Matters in Legal and Business Contexts",
     description:
       "Certified translations are more than word-for-word accuracy. They carry legal validity, trustworthiness, and compliance across borders.",
-    image: "/images/certified-translation.jpg",
+    image: "v1755529653/certified_wrcfxn.webp",
     excerpt:
       "From immigration documents to international contracts, certified translations ensure your content is accepted by courts, governments, and global businesses.",
     date: "2025-08-17",

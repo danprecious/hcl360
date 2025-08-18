@@ -3,6 +3,8 @@
 import { blogPosts } from "@/data/blogPosts";
 import Link from "next/link";
 import MotionWrapper from "@/app/_components/utilities/motionWrapper";
+import Image from "next/image";
+import cloudinaryLoader from "@/app/lib/cloudinary";
 
 export default function BlogPage() {
   return (
@@ -17,12 +19,18 @@ export default function BlogPage() {
       {blogPosts[0] && (
         <MotionWrapper direction="up" delay={0.1}>
           <Link href={`/blog/${blogPosts[0].id}`}>
-            <div className="rounded-xl overflow-hidden border cursor-pointer">
-              <img
-                src={blogPosts[0].image}
-                alt={blogPosts[0].title}
-                className="w-full h-96 object-cover"
-              />
+            <div className="rounded-xl overflow-hidden border h-[80vh] cursor-pointer">
+              <div className="h-[80%] w-full">
+                <Image
+                  loader={cloudinaryLoader}
+                  src={blogPosts[0].image}
+                  alt={`image: ${blogPosts[0].title}`}
+                  width={1000}
+                  height={1000}
+                  className="object-cover w-full h-full"
+                  // unoptimized
+                />
+              </div>
               <div className="p-6">
                 <h2 className="text-2xl font-bold mb-2">
                   {blogPosts[0].title}
@@ -46,12 +54,18 @@ export default function BlogPage() {
         {blogPosts.slice(1).map((post, i) => (
           <MotionWrapper key={post.id} direction="up" delay={i * 0.1}>
             <Link href={`/blog/${post.id}`}>
-              <div className="border rounded-xl overflow-hidden hover:shadow-lg transition min-h-[24em]">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-48 object-cover"
-                />
+              <div className="border rounded-xl overflow-hidden hover:shadow-lg transition h-[24em]">
+                <div className="h-[60%] w-full">
+                  <Image
+                    loader={cloudinaryLoader}
+                    src={post.image}
+                    alt={`image: ${post.title}`}
+                    width={1000}
+                    height={1000}
+                    className="object-cover w-full h-full"
+                    // unoptimized
+                  />
+                </div>
                 <div className="p-4">
                   <h3 className="text-lg font-semibold mb-2">{post.title}</h3>
                   <p className="text-sm opacity-70">{post.excerpt}</p>

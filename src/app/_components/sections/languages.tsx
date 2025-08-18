@@ -15,30 +15,36 @@ export const languagesContents: LanguagesContents = {
   subtext:
     "Our team of native linguists covers a wide range of languages to help your business connect globally with precision and cultural nuance.",
   languages: [
-    { name: "English", flag: "/flags/english.png" },
-    { name: "French", flag: "/flags/french.png" },
-    { name: "Spanish", flag: "/flags/spanish.png" },
-    { name: "German", flag: "/flags/german.png" },
-    { name: "Italian", flag: "/flags/italian.png" },
-    { name: "Portuguese", flag: "/flags/portuguese.png" },
-    { name: "Russian", flag: "/flags/russian.png" },
-    { name: "Chinese (Simplified)", flag: "/flags/chinese-simplified.png" },
-    { name: "Chinese (Traditional)", flag: "/flags/chinese-traditional.png" },
-    { name: "Japanese", flag: "/flags/japanese.png" },
-    { name: "Korean", flag: "/flags/korean.png" },
-    { name: "Arabic", flag: "/flags/arabic.png" },
-    { name: "Turkish", flag: "/flags/turkish.png" },
-    { name: "Hindi", flag: "/flags/hindi.png" },
-    { name: "Bengali", flag: "/flags/bengali.png" },
-    { name: "Swahili", flag: "/flags/swahili.png" },
-    { name: "Dutch", flag: "/flags/dutch.png" },
-    { name: "Greek", flag: "/flags/greek.png" },
-    { name: "Polish", flag: "/flags/polish.png" },
-    { name: "Thai", flag: "/flags/thai.png" },
-    { name: "Vietnamese", flag: "/flags/vietnamese.png" },
-    { name: "Hebrew", flag: "/flags/hebrew.png" },
-    { name: "Urdu", flag: "/flags/urdu.png" },
-    { name: "Persian (Farsi)", flag: "/flags/persian.png" },
+    { name: "English", flag: "v1755527185/english_mx7yda.jpg" },
+    { name: "French", flag: "v1755527184/french_d8z431.jpg" },
+    { name: "Spanish", flag: "v1755527184/spanish_usx4zx.jpg" },
+    { name: "German", flag: "v1755527181/german_elxo5l.jpg" },
+    { name: "Italian", flag: "v1755527180/italian_uvma2d.jpg" },
+    { name: "Portuguese", flag: "v1755527180/portuguese_cwi3qs.jpg" },
+    { name: "Russian", flag: "v1755527180/russian_ryplut.jpg" },
+    {
+      name: "Chinese (Simplified)",
+      flag: "v1755527176/chinese-simplified_z6vo9c.png",
+    },
+    {
+      name: "Chinese (Traditional)",
+      flag: "v1755527175/chinese-traditional_kl8gc9.jpg",
+    },
+    { name: "Japanese", flag: "v1755527175/japanese_uuiywx.jpg" },
+    { name: "Korean", flag: "v1755527175/korean_z3y3sg.jpg" },
+    { name: "Arabic", flag: "v1755527174/arabic_bjllcw.jpg" },
+    { name: "Turkish", flag: "v1755527169/turkish_yzfomu.jpg" },
+    { name: "Hindi", flag: "v1755527168/hindi_muh8d3.jpg" },
+    { name: "Bengali", flag: "v1755527168/bengali_bnfp28.jpg" },
+    { name: "Swahili", flag: "v1755527168/swahili_b0d3un.jpg" },
+    { name: "Dutch", flag: "v1755527158/dutch_ltgfoa.jpg" },
+    { name: "Greek", flag: "v1755527157/greek_qsniuz.jpg" },
+    { name: "Polish", flag: "v1755527157/polish_mycxj8.jpg" },
+    { name: "Thai", flag: "v1755527157/thai_i3pfx3.jpg" },
+    { name: "Vietnamese", flag: "v1755527157/vietnamese_qi8dkr.jpg" },
+    { name: "Hebrew", flag: "v1755527157/hebrew_bjdntr.jpg" },
+    { name: "Urdu", flag: "v1755527157/urdu_sti3rm.jpg" },
+    { name: "Persian (Farsi)", flag: "v1755527157/persian_uafm95.jpg" },
   ],
 };
 
@@ -64,18 +70,20 @@ export const LanguagesPage = () => {
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {languagesContents.languages.map((lang, i) => (
             <MotionWrapper key={i} direction="up" delay={i * 0.05}>
-              <div className="min-h-[15rem] flex flex-col items-center justify-center rounded-2xl shadow hover:shadow-xl transition text-xl font-semibold text-gray-800 p-6">
-                {/* 
-                <Image
-                  loader={cloudinaryLoader}
-                  src={lang.flag || ""}
-                  alt={`${lang.name} flag`}
-                  width={100}
-                  height={100}
-                  className="object-contain mb-4"
-                /> 
-                */}
-                {lang.name}
+              <div className="min-h-[15rem] flex flex-col rounded-1em items-center justify-between rounded-2xl shadow hover:shadow-xl transition    p-8">
+                <div className="h-[80%] w-full rounded-[1em] overflow-hidden">
+                  <Image
+                    loader={cloudinaryLoader}
+                    src={lang.flag || ""}
+                    alt={`${lang.name} flag`}
+                    width={1000}
+                    height={1000}
+                    className="object-cover mb-4 w-full h-full"
+                  />
+                </div>
+                <strong className="text-xl font-semibold text-center">
+                  {lang.name}
+                </strong>
               </div>
             </MotionWrapper>
           ))}
