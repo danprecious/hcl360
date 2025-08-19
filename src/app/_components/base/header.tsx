@@ -58,23 +58,23 @@ const navLinks: NavLinks[] = [
   },
   {
     id: 2,
-    title: "Business Translation Services",
-    href: "/business-translation",
+    title: "Translation Services",
+    href: "/translation",
     subMenu: [
       {
         id: 0,
         title: "Document Translation",
-        href: "/business-translation/#document-translation",
+        href: "/translation/#document-translation",
       },
       {
         id: 1,
         title: "Website Localization",
-        href: "/business-translation/#website-localization",
+        href: "/translation/#website-localization",
       },
       {
         id: 2,
         title: "Certified Translation",
-        href: "/business-translation/#certified-translation",
+        href: "/translation/#certified-translation",
       },
     ],
   },

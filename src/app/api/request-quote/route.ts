@@ -24,16 +24,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
 
-    // Map service types to specific emails
-    const serviceEmails: Record<string, string> = {
-      "AI & Data Services": "ai-data@example.com",
-      "Media Localization": "media@example.com",
-      "Business Translation": "business@example.com",
-      "Industry Solutions": "industries@example.com",
-      General: "info@example.com", // fallback for unspecified
-    };
-
-    const receiverMail = serviceEmails[serviceType] || serviceEmails["General"];
+    const receiverMail = "hclanguage360@hclanguage360.com";
 
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",

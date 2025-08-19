@@ -9,7 +9,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 });
     }
 
-    const receiverMail = "hclanguagesolutions@gmail.com"; // agency email
+    const receiverMail = "hclanguage360@hclanguage360.com"; // agency email
 
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",

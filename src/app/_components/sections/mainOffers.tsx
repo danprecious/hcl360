@@ -34,7 +34,7 @@ const offers = [
   },
   {
     id: 2,
-    title: "Business Translation",
+    title: "Translation",
     description:
       "Accurate and reliable translation for all your corporate needs.",
     subTitle: "Corporate Communication",

@@ -5,7 +5,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
-import { useToast } from "./toasters";
+import { Toast, useToast } from "./toasters";
 
 const servicesHighlights = [
   {
@@ -24,7 +24,7 @@ const servicesHighlights = [
   },
   {
     id: 2,
-    title: "Business Translation",
+    title: "Translation",
     description:
       "Website, marketing, and corporate communication tailored for global markets.",
     icon: "🌍",
@@ -67,6 +67,8 @@ const RequestQuote = () => {
         headers: { "Content-Type": "application/json" },
       });
 
+      console.log("Quote response:", res.data);
+
       setSuccess("Quote request sent successfully!");
       setTimeout(() => removeToast(), 4000);
     } catch (err) {
@@ -103,11 +105,12 @@ const RequestQuote = () => {
       </div>
 
       {/* RIGHT FORM */}
-      <div className="lg:w-1/3 lg:sticky lg:top-10 mt-12 lg:mt-0">
+      <div className="lg:w-1/3 lg:sticky lg:top-10 mt-12 lg:mt-0 relative">
         <form
           onSubmit={handleSubmit(handleQuoteSubmit)}
-          className="border rounded-xl p-6 flex flex-col gap-4"
+          className="border rounded-xl p-6 flex flex-col gap-4 relative"
         >
+          <Toast />
           <input
             {...register("name")}
             placeholder="Your Name"
