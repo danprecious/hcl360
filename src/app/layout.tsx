@@ -16,8 +16,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "HC Language 360",
-  description: "Language Solutions for Global Media and AI",
+  title: "HC Language 360 | Professional AI, Media, and Business Translation",
+  description:
+    "HC Language 360 provides AI & Data services, Media localization, and Business translation solutions. Helping businesses connect globally with quality language services.",
+  keywords: [
+    "translation services",
+    "AI data services",
+    "media localization",
+    "business translation",
+    "language solutions",
+  ],
+  openGraph: {
+    title: "HC Language 360",
+    description:
+      "AI, Media, and Business Translation services for global communication.",
+    url: "https://www.hclanguage360.com",
+    siteName: "HC Language 360",
+    images: [
+      {
+        url: "https://www.hclanguage360.com/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "HC Language 360",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
