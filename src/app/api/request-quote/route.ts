@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+const resend = new Resend("re_jfYqQQCt_Jh1MURK2idoBdRxxuQHevCLS");
 
 export async function POST(req: Request) {
   try {
@@ -26,15 +29,15 @@ export async function POST(req: Request) {
 
     const receiverMail = "hclanguage360@hclanguage360.com";
 
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: "kdpcoder@gmail.com",
-        pass: "zymtznvwrlyfvlgu", // move to env in production
-      },
-    });
+    // const transporter = nodemailer.createTransport({
+    //   host: "smtp.gmail.com",
+    //   port: 587,
+    //   secure: false,
+    //   auth: {
+    //     user: "kdpcoder@gmail.com",
+    //     pass: "zymtznvwrlyfvlgu", // move to env in production
+    //   },
+    // });
 
     const html = `
       <div>
@@ -50,7 +53,14 @@ export async function POST(req: Request) {
       </div>
     `;
 
-    await transporter.sendMail({
+    // await transporter.sendMail({
+    //   from: email,
+    //   to: receiverMail,
+    //   subject: `New Quote Request from ${name}`,
+    //   html,
+    // });
+
+    await resend.emails.send({
       from: email,
       to: receiverMail,
       subject: `New Quote Request from ${name}`,
@@ -59,13 +69,13 @@ export async function POST(req: Request) {
 
     return NextResponse.json(
       { message: "Quote sent successfully" },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.error("Error sending quote:", error);
     return NextResponse.json(
       { error: "Failed to send email" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

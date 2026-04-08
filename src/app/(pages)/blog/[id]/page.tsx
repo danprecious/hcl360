@@ -1,5 +1,7 @@
 import MotionWrapper from "@/app/_components/utilities/motionWrapper";
+import cloudinaryLoader from "@/app/lib/cloudinary";
 import { blogPosts } from "@/data/blogPosts";
+import Image from "next/image";
 
 // ✅ no more generateStaticParams typing issues
 export async function generateStaticParams() {
@@ -12,11 +14,15 @@ export default function BlogPostPage({ params }: any) {
   const post = blogPosts.find((p) => p.id.toString() === params.id);
 
   if (!post) {
-    return <div className="py-20 text-center">Post not found</div>;
+    return (
+      <div className="py-20 text-center font-bold text-[3rem]">
+        Post not found
+      </div>
+    );
   }
 
   return (
-    <div className="w-full py-16 px-6 lg:px-16 max-w-3xl mx-auto">
+    <div className="w-full py-16 px-6 lg:px-5 max-w-3xl mx-auto">
       {/* Title */}
       <MotionWrapper direction="up">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-8">
@@ -31,11 +37,17 @@ export default function BlogPostPage({ params }: any) {
 
       {/* Hero Image */}
       <MotionWrapper direction="up" delay={0.2}>
-        <img
-          src={post.image}
-          alt={post.title}
-          className="w-full h-80 object-cover rounded-xl mb-12"
-        />
+        <div className="h-[50vh] rounded-lg overflow-hidden mb-8 w-full">
+          <Image
+            loader={cloudinaryLoader}
+            src={post.image}
+            alt={`image: ${post.title}`}
+            width={1000}
+            height={1000}
+            className="object-cover w-full h-full"
+            // unoptimized
+          />
+        </div>
       </MotionWrapper>
 
       {/* Content Blocks */}
